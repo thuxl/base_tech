@@ -3,10 +3,12 @@
 #include <stdio.h>
 
 int i=1;
+int j=1;
 int main ()
 {
 
-	int i=i;
+	//int i=i;
+	int i=j;
 	printf("main i=%d\n", i);
   return 0;
 }
