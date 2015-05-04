@@ -1,4 +1,4 @@
-all: psortedListToBST ptest0001 ptest0002 ptest0002 ptest0004g++ ptest0004gcc ptest0005 ptest0006 ptest0007 ptest0008 ptest0009 ptest0010
+all: psortedListToBST ptest0001 ptest0002 ptest0002 ptest0004g++ ptest0004gcc ptest0005 ptest0006 ptest0007 ptest0008 ptest0009 ptest0010 ptest0011
 clean:
 	rm p*
 
@@ -26,3 +26,5 @@ ptest0009: test0009.cc
 	g++ test0009.cc -o ptest0009
 ptest0010: test0010.cc 
 	g++ test0010.cc -o ptest0010
+ptest0011: test0011.cc 
+	g++ test0011.cc -o ptest0011
