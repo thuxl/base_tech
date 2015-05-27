@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
+#include <assert.h>
 /*for beauty of programming 1-8. */
 
 using namespace std;
@@ -76,8 +77,69 @@ private:
 
 		for (int i = 1; i<nCakeCnt; i++)
 		{
+			t = pCakeArray [i] - pCakeArray [i-1];
+			if (t==1 || t==-1) {}
+			else 			   ret++;
+		}
+		return ret;
+	}
+	int LowerBound2 (int nCakeCnt)
+	{
+		return 15*nCakeCnt/14;
+	}
+
+	void Search (int step)
+	{
+		int i, nEstimate;
+		m_nSearch++;
+
+		//nEstimate = LowerBound (m_ReverseCakeArray, m_nCakeCnt);
+		nEstimate = LowerBound2 (m_nCakeCnt);
+		if (step + nEstimate > m_nMaxSwap)
+			return ;
+
+		if (IsSorted(m_ReverseCakeArray, m_nCakeCnt))
+		{
+			if (step < m_nMaxSwap)
+			{
+				m_nMaxSwap = step;
+				for (i=0; i<m_nMaxSwap; i++)
+					m_SwapArray [i] = m_ReverseCakeArraySwap [i];
+			}
+			Output ();
+			return;
+		}
+		for (i=1; i<m_nCakeCnt; i++)
+		{
+			Reverse(0, i);
+			m_ReverseCakeArraySwap[step] = i;
+			Search(step + 1);
+			Reverse(0, i);
 		}
 	}
+
+
+	bool IsSorted(int* pCakeArray, int nCakeCnt)
+	{
+		for (int i=1; i<nCakeCnt; i++)
+			if ( pCakeArray[i-1] > pCakeArray[i] )
+				return false;
+		return true;
+	}
+	
+	void Reverse(int nBegin, int nEnd)
+	{
+		assert (nEnd > nBegin);
+		int i, j, t;
+
+		for (i = nBegin, j=nEnd; i<j; i++, j--)
+		{
+			t = m_ReverseCakeArray[i];
+			m_ReverseCakeArray[i] = m_ReverseCakeArray[j];
+			m_ReverseCakeArray[j] = t;
+		}
+	}
+
 private:
 	int* m_CakeArray;  //烙饼信息数组
 	int  m_nCakeCnt;   //烙饼个数
@@ -91,25 +153,13 @@ private:
 };
 
 
-void foo::change(char *p) const
-{
-	//a = 1;
-	p[0] = '0';
-	p[1] = '1';
-	p[2] = '2';
-	p[3] = '\0';
-}
 
 int main()
 {
-	char *ptr = new char[20];
-	memset(ptr, 0, 20*sizeof (char));
-	
-	foo f;
-
-	f.change(ptr);
+	CPrefixSorting  ob_cps;
+	int cakes [10] = {3, 2, 1, 6, 5, 4, 9, 8, 7, 0};
+	ob_cps.Run(cakes, 10);
 
 
-	printf("ptr=%s\n", ptr);
 	return 1;
 }
