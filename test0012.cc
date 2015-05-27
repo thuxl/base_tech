@@ -69,6 +69,15 @@ private:
 	{
 		return nCakeCnt * 2;
 	}
+
+	int LowerBound (int* pCakeArray, int nCakeCnt)
+	{
+		int t, ret=0;
+
+		for (int i = 1; i<nCakeCnt; i++)
+		{
+		}
+	}
 private:
 	int* m_CakeArray;  //烙饼信息数组
 	int  m_nCakeCnt;   //烙饼个数
