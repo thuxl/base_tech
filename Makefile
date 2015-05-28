@@ -29,4 +29,4 @@ ptest0010: test0010.cc
 ptest0011: test0011.cc 
 	g++ test0011.cc -o ptest0011
 ptest0012: test0012.cc 
-	g++ test0012.cc -o ptest0012
+	g++ test0012.cc -g -o  ptest0012

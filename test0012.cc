@@ -17,13 +17,13 @@ public:
 	~CPrefixSorting ()
 	{
 		if (m_CakeArray != NULL)
-			delete m_CakeArray ; 
+			delete [] m_CakeArray ; 
 		if (m_SwapArray != NULL)
-			delete m_SwapArray ; 
+			delete [] m_SwapArray ; 
 		if (m_ReverseCakeArray != NULL)
-			delete m_ReverseCakeArray ; 
+			delete [] m_ReverseCakeArray ; 
 		if (m_ReverseCakeArraySwap != NULL)
-			delete m_ReverseCakeArraySwap ; 
+			delete [] m_ReverseCakeArraySwap ; 
 	}
 	void Run (int* pCakeArray, int nCakeCnt)
 	{
@@ -61,7 +61,7 @@ private:
 		for (int i = 0; i < m_nCakeCnt; i++)
 			m_ReverseCakeArray [i] = m_CakeArray [i];
 
-		m_ReverseCakeArraySwap = new int [m_nCakeCnt];
+		m_ReverseCakeArraySwap = new int [m_nMaxSwap];
 		assert (m_ReverseCakeArraySwap != NULL);
 
 	}
@@ -93,8 +93,8 @@ private:
 		int i, nEstimate;
 		m_nSearch++;
 
-		//nEstimate = LowerBound (m_ReverseCakeArray, m_nCakeCnt);
-		nEstimate = LowerBound2 (m_nCakeCnt);
+		nEstimate = LowerBound (m_ReverseCakeArray, m_nCakeCnt);
+		//nEstimate = LowerBound2 (m_nCakeCnt);
 		if (step + nEstimate > m_nMaxSwap)
 			return ;
 
