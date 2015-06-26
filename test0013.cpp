@@ -60,6 +60,26 @@ public:
 	virtual void cc();
 };
 
+
+class AA1{
+	char k[3];
+public:
+	virtual void aa();
+};
+class BB1:public  AA1
+{
+	char j[3];
+public:
+	virtual void bb();
+};
+class CC1:public  BB1
+{
+	char i[3];
+public:
+	virtual void cc();
+};
+
+
 int main(int argc, _TCHAR* argv[])
 {
 	cout << "sizeof(a1)=" <<sizeof(a1)<<", sizeof(b1)="<<sizeof(b1)<<endl;
@@ -69,6 +89,9 @@ int main(int argc, _TCHAR* argv[])
 
 	cout << "sizeof(AA)=" <<sizeof(AA)<<", sizeof(BB)="<<sizeof(BB)<<endl;
 	cout << "sizeof(CC)=" <<sizeof(CC)<<"\n"<<endl;
+
+	cout << "sizeof(AA1)=" <<sizeof(AA1)<<", sizeof(BB1)="<<sizeof(BB1)<<endl;
+	cout << "sizeof(CC1)=" <<sizeof(CC1)<<"\n"<<endl;
 	return 0;
 }
 
