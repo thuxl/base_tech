@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
@@ -106,14 +105,8 @@ private:
 				m_nMaxSwap = step;
 				for (i=0; i<m_nMaxSwap; i++)
 					m_SwapArray [i] = m_ReverseCakeArraySwap [i];
-				Output ();
 			}
-			else{
-				cout << "get result, but too many steps:"<<step<<">=max:"<<m_nMaxSwap<<". ";
-				for (i=0; i<step; i++)
-					cout<< m_ReverseCakeArraySwap [i]<<" ";
-				cout<<endl;
-			}
+			Output ();
 			return;
 		}
 		for (i=1; i<m_nCakeCnt; i++)
@@ -164,11 +157,8 @@ private:
 int main()
 {
 	CPrefixSorting  ob_cps;
-	//int cakes [10] = {3, 2, 1, 6, 5, 4, 9, 8, 7, 0};
-	//ob_cps.Run(cakes, 10);
-
-	int cakes [3] = {3, 1, 2};
-	ob_cps.Run(cakes, 3);
+	int cakes [10] = {3, 2, 1, 6, 5, 4, 9, 8, 7, 0};
+	ob_cps.Run(cakes, 10);
 
 
 	return 1;
